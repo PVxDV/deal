@@ -1,9 +1,9 @@
-package model;
+package deal.model;
 
 
 
 
-import model.enums.CreditStatus;
+import deal.model.enums.CreditStatus;
 
 import java.math.BigDecimal;
 import java.util.List;

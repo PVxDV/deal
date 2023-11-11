@@ -1,7 +1,7 @@
-package model;
+package deal.model;
 
-import model.enums.ApplicationStatus;
-import model.enums.ChangeType;
+import deal.model.enums.ApplicationStatus;
+import deal.model.enums.ChangeType;
 
 import java.time.LocalDate;
 

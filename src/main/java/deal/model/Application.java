@@ -1,8 +1,8 @@
-package model;
+package deal.model;
 
-import model.dto.ApplicationStatusHistoryDTO;
-import model.dto.LoanOfferDTO;
-import model.enums.ApplicationStatus;
+import deal.model.dto.ApplicationStatusHistoryDTO;
+import deal.model.dto.LoanOfferDTO;
+import deal.model.enums.ApplicationStatus;
 
 import java.time.LocalDate;
 import java.util.List;

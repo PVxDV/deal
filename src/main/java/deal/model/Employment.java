@@ -1,7 +1,7 @@
-package model;
+package deal.model;
 
-import model.enums.EmploymentStatus;
-import model.enums.Position;
+import deal.model.enums.EmploymentStatus;
+import deal.model.enums.Position;
 
 import java.math.BigDecimal;
 

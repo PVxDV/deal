@@ -1,7 +1,7 @@
-package model;
+package deal.model;
 
-import model.enums.Gender;
-import model.enums.MaritalStatus;
+import deal.model.enums.Gender;
+import deal.model.enums.MaritalStatus;
 
 import java.time.LocalDate;
 

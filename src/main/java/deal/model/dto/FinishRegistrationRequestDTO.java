@@ -1,8 +1,7 @@
-package model.dto;
+package deal.model.dto;
 
-import model.dto.EmploymentDTO;
-import model.enums.Gender;
-import model.enums.MaritalStatus;
+import deal.model.enums.Gender;
+import deal.model.enums.MaritalStatus;
 
 import java.time.LocalDate;
 

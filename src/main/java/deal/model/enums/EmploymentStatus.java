@@ -1,4 +1,4 @@
-package model.enums;
+package deal.model.enums;
 
 public enum EmploymentStatus {
     UNEMPLOYED,

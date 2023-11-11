@@ -1,8 +1,8 @@
-package model.dto;
+package deal.model.dto;
 
 
-import model.enums.EmploymentStatus;
-import model.enums.Position;
+import deal.model.enums.EmploymentStatus;
+import deal.model.enums.Position;
 
 import java.math.BigDecimal;
 
