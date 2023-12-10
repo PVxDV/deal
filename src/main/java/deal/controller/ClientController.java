@@ -1,19 +1,42 @@
-package deal.controllers;
+package deal.controller;
 
-import deal.model.dto.FinishRegistrationRequestDTO;
-import deal.model.dto.LoanApplicationRequestDTO;
-import deal.model.dto.LoanOfferDTO;
+import deal.command.ApplicationResponse;
+import deal.command.ClientResponse;
+import deal.dto.FinishRegistrationRequestDTO;
+import deal.dto.LoanApplicationRequestDTO;
+import deal.dto.LoanOfferDTO;
+import deal.model.Application;
+import deal.model.Client;
+import deal.service.ApplicationService;
+import deal.service.ClientService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/deal")
-public class ApplicationController {
+@AllArgsConstructor
+public class ClientController {
+    private ClientService clientService;
+    private ApplicationService applicationService;
 
-    @PostMapping("/application")
-    public ResponseEntity<List<LoanOfferDTO>> calculateAvailableOffers (@RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO) {
+    @PostMapping(value = "/application", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<LoanOfferDTO>> calculateAvailableOffers(@RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO) {
+
+        ClientResponse clientResponse = clientService.createClient(loanApplicationRequestDTO);
+      //  ApplicationResponse applicationResponse = applicationService.createApplication(clientResponse);
+
+        // post on conveyor
+        List<LoanOfferDTO> offers = new ArrayList<>();
+
+      //  offers.forEach(loanOfferDTO -> loanOfferDTO.setApplicationId(applicationResponse.getApplicationId()));
+
+        return ResponseEntity.ok(offers);
         /*
     1. По API приходит LoanApplicationRequestDTO
     2. На основе LoanApplicationRequestDTO создаётся сущность Client и сохраняется в БД.
@@ -23,11 +46,11 @@ public class ApplicationController {
     Каждому элементу из списка List<LoanOfferDTO> присваивается id созданной заявки (Application)
     5. Ответ на API - список из 4х LoanOfferDTO от "худшего" к "лучшему".
          */
-        return null;
+
     }
 
     @PutMapping("/offer")
-    public void saveAppliedOffer (@RequestBody LoanOfferDTO loanOfferDTO){
+    public void saveAppliedOffer(@RequestBody LoanOfferDTO loanOfferDTO) {
         /*
     1. По API приходит LoanOfferDTO
     2. Достаётся из БД заявка(Application) по applicationId из LoanOfferDTO.
@@ -38,8 +61,8 @@ public class ApplicationController {
     }
 
     @PutMapping("/calculate/{applicationId}")
-    public void calculateLoanParameters (@RequestBody FinishRegistrationRequestDTO finishRegistrationRequestDTO,
-                                         @PathVariable Long applicationId) {
+    public void calculateLoanParameters(@RequestBody FinishRegistrationRequestDTO finishRegistrationRequestDTO,
+                                        @PathVariable Long applicationId) {
         /*
     1. По API приходит объект FinishRegistrationRequestDTO и параметр applicationId (Long).
     2. Достаётся из БД заявка(Application) по applicationId.

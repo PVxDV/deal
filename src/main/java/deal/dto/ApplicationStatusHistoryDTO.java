@@ -1,4 +1,4 @@
-package deal.model.dto;
+package deal.dto;
 
 import deal.model.enums.ApplicationStatus;
 import deal.model.enums.ChangeType;

@@ -1,8 +1,11 @@
-package deal.model.dto;
+package deal.dto;
+
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Data
 public class LoanApplicationRequestDTO {
     BigDecimal amount;
     Integer term;
