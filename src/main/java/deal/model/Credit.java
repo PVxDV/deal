@@ -6,8 +6,8 @@ import deal.model.jsonObj.PaymentScheduleElement;
 import io.hypersistence.utils.hibernate.type.basic.PostgreSQLEnumType;
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.Type;
 
@@ -15,11 +15,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@Accessors(chain = true)
 @Entity
 @Table(name = "credit")
+@Data
+@Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true)
 public class Credit extends BaseEntity {
     @Column(name = "amount", columnDefinition = "decimal")
     private BigDecimal amount;
@@ -35,9 +35,9 @@ public class Credit extends BaseEntity {
     @Column(name = "payment_schedule", columnDefinition = "jsonb")
     private List<PaymentScheduleElement> paymentSchedule = new ArrayList<>();
     @Column(name = "insurance_enable")
-    private Boolean isInsuranceEnabled;
+    private Boolean insurance_enable;
     @Column(name = "salary_client")
-    private Boolean isSalaryClient;
+    private Boolean salary_client;
     @Enumerated(EnumType.STRING)
     @Type(PostgreSQLEnumType.class)
     @Column(name = "credit_status", columnDefinition = "varchar")

@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: ms-deal
+  datasource:
+    username: ms-deal
+    password: password
+    driver-class-name: org.postgresql.Driver
+    name: ms-deal-db
+    url: jdbc:postgresql://localhost:5432/ms-deal-db
+  jpa:
+    repositories:
+      enabled: true
+    properties:
+      hibernate:
+        ddl-auto: create-drop
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+logging:
+  level:
+    org:
+      hibernate:
+        sql: info
+        type: trace

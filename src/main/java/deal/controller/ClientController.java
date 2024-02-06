@@ -1,12 +1,9 @@
 package deal.controller;
 
-import deal.command.ApplicationResponse;
 import deal.command.ClientResponse;
 import deal.dto.FinishRegistrationRequestDTO;
 import deal.dto.LoanApplicationRequestDTO;
 import deal.dto.LoanOfferDTO;
-import deal.model.Application;
-import deal.model.Client;
 import deal.service.ApplicationService;
 import deal.service.ClientService;
 import lombok.AllArgsConstructor;
@@ -22,8 +19,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/deal")
 @AllArgsConstructor
 public class ClientController {
-    private ClientService clientService;
-    private ApplicationService applicationService;
+    private final ClientService clientService;
+    private final ApplicationService applicationService;
 
     @PostMapping(value = "/application", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<LoanOfferDTO>> calculateAvailableOffers(@RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO) {

@@ -2,8 +2,6 @@ package deal.service;
 
 import deal.command.ApplicationResponse;
 import deal.command.ClientResponse;
-import deal.model.Application;
-import deal.model.Client;
 import deal.repository.ApplicationRepository;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -23,6 +21,16 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     /*
+
+    Long applicationId;
+    Client client;
+    Credit credit;
+    ApplicationStatus status;
+    LocalDate creationDate;
+    LoanOfferDTO appliedOffer;
+    LocalDate signDate;
+    String secCode;
+    List<ApplicationStatusHistoryDTO> applicationStatusHistory;
 
       public ClientResponse createClient(@NotNull LoanApplicationRequestDTO loanApplicationRequestDTO) {
         Client client = buildClientRequest(loanApplicationRequestDTO);

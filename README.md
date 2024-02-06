@@ -22,3 +22,18 @@
   5. На основе полученного из кредитного конвейера *CreditDTO* создаётся сущность *Credit* и сохраняется в базу со статусом *CALCULATED*.
   6. В заявке обновляется статус, история статусов.
   7. Заявка сохраняется.
+
+## Запуск контейнера PostgreSQL
+
+```
+docker run --name ms-deal-db-container -p 5432:5432 -e POSTGRES_USER=ms-deal -e POSTGRES_PASSWORD=password -e POSTGRES_DB=ms-deal-db -d postgres:latest
+```
+
+- `--name pg1` – имя контейнера.
+- `-p 5432:5432` – порт контейнера : порт внутри контейнера.
+- `-e` – установить переменные окружения.
+- `-e POSTGRES_USER=ms-deal` – имя супер юзера.
+- `-e POSTGRES_PASSWORD=password` – пароль супер юзера.
+- `-e POSTGRES_DB=ms-deal-db` – имя бд.
+- `-d` – запустить контейнер в фоновом режиме.
+- `postgres:latest` – последняя версия бд.

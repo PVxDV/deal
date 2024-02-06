@@ -1,14 +1,12 @@
 package deal.model.jsonObj;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @Accessors(chain = true)
 public class PaymentScheduleElement {
     private Integer number;

@@ -2,15 +2,18 @@ package deal.model.jsonObj;
 
 import deal.model.enums.EmploymentStatus;
 import deal.model.enums.Position;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
-@Getter
-@Setter
+@Data
 @Accessors(chain = true)
 public class Employment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long employmentId;
     private EmploymentStatus employmentStatus;
     private String employerINN;

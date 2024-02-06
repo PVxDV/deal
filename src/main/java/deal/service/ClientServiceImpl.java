@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 public class ClientServiceImpl implements ClientService {
     private final ClientRepository clientRepository;
+
     @NotNull
     @Override
     @Transactional
